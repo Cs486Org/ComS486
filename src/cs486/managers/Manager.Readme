@@ -1,0 +1,2 @@
+This package is used to contain any logic managers.
+This includes useage of data objects, allowing them to be accessed in a localized fashion.
