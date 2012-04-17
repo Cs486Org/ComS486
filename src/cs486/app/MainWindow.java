@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 
+import cs486.games.BFClickGame;
+
 @SuppressWarnings("serial")
 public class MainWindow extends JFrame {
 
@@ -17,10 +19,9 @@ public class MainWindow extends JFrame {
 	
 	public static void main(String... args) {
 		MainWindow frame = new MainWindow();
-
 		
 	}
-
+	
 	public MainWindow() {
 		initializeBasicLayout();
 		
