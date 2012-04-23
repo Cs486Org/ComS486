@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-Name: MockupBundle
+Bundle-SymbolicName: MockupBundle
+Bundle-Version: 1.0.0
+Bundle-Description: Mockup Bundle
+Bundle-Vendor: Alexander Jones
+Bundle-Activator: de.vpe.simplebundle.impl.Activator
+Bundle-Category: example
+Import-Package: org.osgi.framework
+Export-Package: de.vpe.firstservice
