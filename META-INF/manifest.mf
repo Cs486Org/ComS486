@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-Name: MockupBundleClient
+Bundle-SymbolicName: MockupBundleClient
+Bundle-Version: 1.0.0
+Bundle-Description: Mockup Bundle Client
+Bundle-Vendor: Alexander Jones
+Bundle-Activator: cs486.osgi.Activator
+Bundle-Category: example
+Import-Package: org.osgi.framework,de.vpe.firstservice,javax.swing

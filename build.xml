@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<project name="MockupBundle" default="all">
+<target name="all" depends="init,compile,jar"/>
+<target name="init">
+<mkdir dir="./classes"/>
+<mkdir dir="./build"/>
+</target>
+<target name="compile">
+<javac destdir = "./classes"
+debug = "on"
+srcdir = "./src">
+	<classpath>        
+		<pathelement location="C:/knopflerfish_osgi_3.2.0/osgi/framework.jar"/>        
+		<pathelement location="C:/Users/Alexander Jones/ComS486/MockupBundle/build/MockupBundle.jar"/>    
+	 </classpath>
+</javac>
+</target>
+<target name="jar">
+<jar basedir = "./classes"
+jarfile = "./build/MockupBundleClient.jar"
+compress = "true"
+includes = "**/*"
+manifest = "./meta-inf/MANIFEST.MF"
+/>
+</target>
+<target name="clean">
+<delete dir = "./classes"/>
+<delete dir = "./build"/>
+</target>
+</project>
