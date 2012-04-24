@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.Random;
 
 import cs486.app.MainWindow;
+import cs486.osgi.microwave.MicrowaveMockup;
 
 import de.vpe.firstservice.FirstService;
 
@@ -18,19 +19,41 @@ public class ServiceUserThread extends Thread {
 	public void run() {
 		Date date = null;
 		String formattedDate = null;
+		
 		MainWindow mw = new MainWindow();
-		mw.main();
+		MicrowaveRunner mwr = new MicrowaveRunner();
+		mwr.run();
+		//mm.main();
+		//mw.main();
 		
 		Random r = new Random();
 		int runtime = 60000 * r.nextInt(5); //Runtime is the amount of time the game may be prompted to run, up to five minutes.
-		try {
-			this.sleep(runtime);
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}  //Initial wait no sense in starting up immediately.  TODO: May extend this to a longer initial wait.
+		int promptWait = 60000 * 15;
+		long begin = System.currentTimeMillis();
+		long cur = System.currentTimeMillis();
+		
 		while (running) {
-			runtime = 60000 * r.nextInt(5);
+			if(mwr.getCookTime() >0){	//Prioritize Microwave input
+				runtime = mwr.getCookTime();
+				
+				//Only prompt if game is not in play already
+				//System.out.println("Selecting game.  Will allow user to play for "+runtime/60000+" minutes.");
+				//System.out.println(cur - begin);
+				
+				//TODO: Implement game prompt logic
+				
+				
+				
+			}else if(cur - begin >= promptWait){ //Wait 15 mins before prompting for a game
+				runtime = 60000 * r.nextInt(5);
+				begin = System.currentTimeMillis();
+				//Only prompt if game is not in play already
+			}
+			
+			cur = System.currentTimeMillis();
+			
+			
+			/*runtime = 60000 * r.nextInt(5);
 			
 			//Game Prompt logic here.
 			date = new Date();
@@ -48,7 +71,7 @@ public class ServiceUserThread extends Thread {
 				Thread.sleep(runtime);
 			} catch (InterruptedException e) {
 				System.out.println("ServiceUserThread ERROR: " + e);
-			}
+			}*/
 		}
 	}
 
