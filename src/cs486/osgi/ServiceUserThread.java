@@ -20,9 +20,10 @@ public class ServiceUserThread extends Thread {
 		Date date = null;
 		String formattedDate = null;
 		
-		MainWindow mw = new MainWindow();
+		GameRunner gr = new GameRunner();
 		MicrowaveRunner mwr = new MicrowaveRunner();
 		mwr.run();
+		gr.run();
 		//mm.main();
 		//mw.main();
 		
@@ -41,11 +42,30 @@ public class ServiceUserThread extends Thread {
 				//System.out.println(cur - begin);
 				
 				//TODO: Implement game prompt logic
+				if(!gr.isGameInPlay()){
+					gr.suggestGame(runtime);
+				}
 				
-				
-				
+				try {
+					Thread.sleep((long) (runtime*1.5));
+					
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				begin = System.currentTimeMillis();
+	
 			}else if(cur - begin >= promptWait){ //Wait 15 mins before prompting for a game
 				runtime = 60000 * r.nextInt(5);
+				if(!gr.isGameInPlay()){
+					gr.suggestGame(runtime);
+				}
+				try {
+					Thread.sleep((long) (runtime*1.5));
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				begin = System.currentTimeMillis();
 				//Only prompt if game is not in play already
 			}

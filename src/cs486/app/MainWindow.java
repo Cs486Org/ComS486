@@ -40,4 +40,13 @@ public class MainWindow extends JFrame {
 		this.add(gamePane);
 		this.add(scorePane);
 	}
+	
+	public void suggestGame(long runtime){
+		gamePane.suggestGame(runtime);
+	}
+
+	public boolean isGameInPlay() {
+		return false; //TODO: add logic to check wether the game is in play. 
+		
+	}
 }

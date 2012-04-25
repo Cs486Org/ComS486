@@ -10,8 +10,8 @@
 debug = "on"
 srcdir = "./src">
 	<classpath>        
-		<pathelement location="C:/knopflerfish_osgi_3.2.0/osgi/framework.jar"/>        
-		<pathelement location="C:/Users/Alexander Jones/ComS486/MockupBundle/build/MockupBundle.jar"/>    
+		<pathelement location="./lib/framework.jar"/>        
+		<pathelement location="./lib/MockupBundle.jar"/>    
 	 </classpath>
 </javac>
 </target>
