@@ -30,6 +30,7 @@ public class BFGamePanel extends JPanel {
 	public void setVisibleGame(int gameID) {
 		CardLayout cl = (CardLayout) (this.getLayout());
 		cl.show(this, SCREENS[gameID]);
+		
 	}
 
 	private void createAndAddScreens() {
@@ -41,5 +42,6 @@ public class BFGamePanel extends JPanel {
 		BFClickGame clickGame = new BFClickGame();
 		clickGame.setPreferredSize(new Dimension(600, 600));
 		this.add(clickGame, SCREENS[1]);
+		clickGame.play();
 	}
 }

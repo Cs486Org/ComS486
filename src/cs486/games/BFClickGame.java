@@ -19,9 +19,9 @@ public class BFClickGame extends BFGame {
 	@Override
 	public void play() {
 		for(int i = 0; i < 4; i++) {
-			Point origin = drawCircle();
+			drawCircle();
 			
-			listenForClick(origin);
+			
 		}
 	}
 
@@ -46,8 +46,9 @@ public class BFClickGame extends BFGame {
 
 	}
 	
-	private Point drawCircle() {
-		Graphics g = this.getGraphics();
+	private void drawCircle() {	
+		/*
+		 *
 		Random r = new Random();
 		
 		int radius = r.nextInt(25) + 5;
@@ -55,10 +56,8 @@ public class BFClickGame extends BFGame {
 		int posY = r.nextInt(600 - radius) + radius;
 		
 		g.setColor(Color.RED);
-		g.fillOval(posX, posY, radius*2, radius*2);
-		g.finalize();
-		
-		return new Point(posX, posY);
+		g.fillOval(posX, posY, radius*2, radius*2); 
+		 */
 	}
 
 }
