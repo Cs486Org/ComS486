@@ -35,7 +35,7 @@ public class MainWindow extends JFrame {
 		//TODO change this
 		gamePane.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				gamePane.setVisibleGame(1);
+				//TODO something should probably happen here
 			}
 		});
 		
