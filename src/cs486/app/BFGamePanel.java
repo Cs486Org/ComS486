@@ -27,10 +27,18 @@ public class BFGamePanel extends JPanel {
 		this.setVisible(true);
 	}
 
+	// This is the method to prompt for game play.
+	public void suggestGame(long runtime) {
+		JLabel playGame = (JLabel) this.getComponent(0);
+		playGame.setText("It appears you have " + runtime / 60000
+				+ " minutes free.  would you like to play a game?");
+
+	}
+
 	public void setVisibleGame(int gameID) {
 		CardLayout cl = (CardLayout) (this.getLayout());
 		cl.show(this, SCREENS[gameID]);
-		
+
 	}
 
 	private void createAndAddScreens() {
