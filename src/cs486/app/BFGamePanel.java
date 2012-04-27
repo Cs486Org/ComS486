@@ -21,6 +21,8 @@ public class BFGamePanel extends JPanel implements ActionListener {
 
 	private static String[] SCREENS = { "Welcome screen", "Game 1 screen",
 			"Game 2 screen", "Game 3 screen" };
+	
+	private JDialog popup = new JDialog();
 
 	public BFGamePanel() {
 		this.setPreferredSize(new Dimension(600, 600));
@@ -45,7 +47,7 @@ public class BFGamePanel extends JPanel implements ActionListener {
 		
 		playGameButton.addActionListener(this);
 		playGameButton.setActionCommand("playPush");
-		JDialog popup = new JDialog();
+		popup = new JDialog();
 		popup.setLayout(new BoxLayout(popup.getContentPane(), BoxLayout.Y_AXIS));
 		popup.setSize(515, 200);
 		popup.setLocation(500, 300);
@@ -88,7 +90,15 @@ public class BFGamePanel extends JPanel implements ActionListener {
 		if("playPush".equals(e.getActionCommand())){
 	    	//setTime = 60000*1;
 	    	//textField.setText("1 Minute");
-			System.exit(0);
+			//System.exit(0);
+			popup.dispose();
+			
+			cs486.games.BFSimonGame simonGame = new cs486.games.BFSimonGame();
+			simonGame.setPreferredSize(new Dimension(600, 600));
+			this.add(simonGame, SCREENS[1]);
+			
+			setVisibleGame(1);
+			simonGame.play();
 		}
 		
 	}

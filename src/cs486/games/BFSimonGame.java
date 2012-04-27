@@ -41,6 +41,8 @@ public class BFSimonGame extends BFGame implements java.awt.event.ActionListener
 				repaint();
 				//newbutton.s
 				newbutton.setBackground(buttonColors[i]);
+				newbutton.setForeground(buttonColors[i]);
+				
 			
 				buttons.add(new javax.swing.JButton());
 				
