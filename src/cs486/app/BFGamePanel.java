@@ -2,20 +2,18 @@ package cs486.app;
 
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import cs486.games.BFGame;
 
 @SuppressWarnings("serial")
 public class BFGamePanel extends JPanel {
 
 	private static String[] SCREENS = { "Welcome screen", "Game 1 screen",
 			"Game 2 screen", "Game 3 screen" };
-
+	private boolean gameInPlay = false;
+	
 	public BFGamePanel() {
 		this.setPreferredSize(new Dimension(600, 600));
 		this.setLayout(new CardLayout());
@@ -41,14 +39,19 @@ public class BFGamePanel extends JPanel {
 	}
 
 	private void createAndAddScreens() {
-		/* TODO: make a menu/welcome screen? */
 		JLabel welcome = new JLabel("Welcome to BrainFlex", JLabel.CENTER);
 		welcome.setForeground(Color.WHITE);
 		this.add(welcome, SCREENS[0]);
 
-/*		BFClickGame clickGame = new BFClickGame();
-		clickGame.setPreferredSize(new Dimension(600, 600));
-		this.add(clickGame, SCREENS[1]);
-*/
+		// TODO: add game(s)
+		/*
+		BFClickGame bfcg = new BFClickGame();
+		bfcg.setPreferredSize(new Dimension(600, 600));
+		this.add(bfcg, SCREENS[1]);
+		*/
+	}
+
+	public boolean isGameInPlay() {
+		return gameInPlay;
 	}
 }
