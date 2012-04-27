@@ -2,7 +2,6 @@ package cs486.app;
 
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,8 +13,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import cs486.games.BFGame;
-
 @SuppressWarnings("serial")
 public class BFGamePanel extends JPanel implements ActionListener {
 
@@ -24,6 +21,9 @@ public class BFGamePanel extends JPanel implements ActionListener {
 	
 	private JDialog popup = new JDialog();
 
+
+	private boolean gameInPlay = false;
+	
 	public BFGamePanel() {
 		this.setPreferredSize(new Dimension(600, 600));
 		this.setLayout(new CardLayout());
@@ -65,16 +65,10 @@ public class BFGamePanel extends JPanel implements ActionListener {
 	}
 
 	private void createAndAddScreens() {
-		/* TODO: make a menu/welcome screen? */
 		JLabel welcome = new JLabel("Welcome to BrainFlex", JLabel.CENTER);
 		welcome.setForeground(Color.WHITE);
 		this.add(welcome, SCREENS[0]);
 
-/*		BFClickGame clickGame = new BFClickGame();
-		clickGame.setPreferredSize(new Dimension(600, 600));
-		this.add(clickGame, SCREENS[1]);
-*/
-	
 	    cs486.games.BFSimonGame simonGame = new cs486.games.BFSimonGame();
 		simonGame.setPreferredSize(new Dimension(600, 600));
 		this.add(simonGame, SCREENS[1]);
@@ -82,6 +76,9 @@ public class BFGamePanel extends JPanel implements ActionListener {
 		setVisibleGame(1);
 		simonGame.play();
 		
+	}
+	public boolean isGameInPlay() {
+		return gameInPlay;
 	}
 
 	@Override
@@ -100,6 +97,5 @@ public class BFGamePanel extends JPanel implements ActionListener {
 			setVisibleGame(1);
 			simonGame.play();
 		}
-		
 	}
 }

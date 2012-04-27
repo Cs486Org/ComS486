@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class PlayerProfile {
 
-	private int[] highscores = {0, 0, 0};
+	private int highscore = 0;
 	private String name;
 	private String catchphrase;
 	private ArrayList<PlayerProfile> friends = new ArrayList<PlayerProfile>();
@@ -24,6 +24,12 @@ public class PlayerProfile {
 		catchphrase = c;
 	}
 	
+	public PlayerProfile(String n, String c, int score) {
+		name = n;
+		catchphrase = c;
+		highscore = score;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -37,11 +43,11 @@ public class PlayerProfile {
 	}
 	
 	public int[] getHighScores() {
-		return highscores;
+		return new int[] {0};
 	}
 	
-	public int getHighScore(int i) {
-		return highscores[i];
+	public int getHighScore() {
+		return highscore;
 	}
 	
 	public ArrayList<PlayerProfile> getFriendsList() {
@@ -58,5 +64,9 @@ public class PlayerProfile {
 	
 	public boolean removeFriend(PlayerProfile pp) {
 		return friends.remove(pp);
+	}
+
+	public void setHighScore(int i) {
+		highscore = i;		
 	}
 }

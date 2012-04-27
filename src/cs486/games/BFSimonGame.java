@@ -3,6 +3,8 @@ package cs486.games;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 
+import cs486.managers.BFManager;
+
 public class BFSimonGame extends BFGame implements java.awt.event.ActionListener, Runnable{
 
 	protected static Color[] buttonColors = {Color.RED, Color.BLUE , Color.GREEN, Color.YELLOW};
@@ -91,11 +93,10 @@ public class BFSimonGame extends BFGame implements java.awt.event.ActionListener
 
 	@Override
 	public void reportScore() {
-		// TODO Auto-generated method stub
        if(sequence != null){
-    	   //return 0;
+    	   BFManager.getInstance().newHighScore(0);
        } else{
-    	   //return sequence.size() - 1;
+    	   BFManager.getInstance().newHighScore(sequence.size() - 1);
        }
 	}
 
