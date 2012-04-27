@@ -8,54 +8,57 @@ import java.io.File;
 import java.io.IOException;
 
 //import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
+//import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 //import javax.swing.border.Border;
 //import javax.swing.border.CompoundBorder;
 //import javax.swing.border.EmptyBorder;
 //import javax.swing.border.LineBorder;
 
+import cs486.dataobjects.PlayerProfile;
+import cs486.managers.BFManager;
+
 @SuppressWarnings("serial")
 public class BFScorePanel extends JPanel {
 
-	private final String PATH = "img/icon.gif";
-	private JPanel profileInfo = new JPanel();
+//	private final String PATH = "img/icon.gif";
+//	private JPanel profileInfo;
+	private JLabel name, phrase, score;
 	
 	public BFScorePanel() {
 		this.setPreferredSize(new Dimension(200, 600));
+		this.setLayout(new GridLayout(4, 1));
 		
-		initProfileInfo();
-		initScores();
+		name = new JLabel();
+		name.setBorder(new EmptyBorder(10, 10, 10, 10));
+		phrase = new JLabel();
+		phrase.setBorder(new EmptyBorder(10, 10, 10, 10));
+		score = new JLabel();
+		score.setBorder(new EmptyBorder(10, 10, 10, 10));
+		
+		this.add(name);
+		this.add(phrase);
+		this.add(score);
+		JPanel padding = new JPanel();
+		padding.setPreferredSize(new Dimension(200, 500));
+		this.add(padding);
+		
+		updateProfileInfo();
 		
 		this.setVisible(true);
 	}
-	
-	private void initScores() {
-		// TODO Auto-generated method stub
-		
-	}
 
-	private void initProfileInfo() {
-	    GridLayout grid = new GridLayout(1,2);
-		profileInfo.setLayout(grid);
-		profileInfo.setPreferredSize(new Dimension(200, 80));
-		BufferedImage sampleProfPic;
-		//TODO get profile info from somewhere else
-		//sampleProfPic = ImageIO.read(new File(PATH));
-		//JLabel picLabel = new JLabel(new ImageIcon(sampleProfPic));
-		//Border border = new LineBorder(Color.GRAY, 2, true);
-		//Border margin = new EmptyBorder(2, 2, 2, 2);
-		//picLabel.setBorder(new CompoundBorder(border, margin));
-		//picLabel.setPreferredSize(new Dimension(50, 80));
-		//TODO make a namecard class
-		//TODO player.getName()
-		JLabel nameCard = new JLabel("Chad");
+	public void updateProfileInfo() {
+		PlayerProfile p = BFManager.getInstance().getCurrentProfile();
+				
+		System.out.println(p.getName());
 		
-		nameCard.setPreferredSize(new Dimension(150, 80));
+		name.setText(p.getName());
+		phrase.setText(String.valueOf(p.getHighScore()));
+		score.setText(p.getCatchphrase());
 		
-		//profileInfo.add(picLabel);
-		profileInfo.add(nameCard);
-		this.add(profileInfo);
+		this.validate();
 	}
 }

@@ -11,7 +11,12 @@
 </Player>
 <Player>
 	<Username>Jacob</Username>
-	<Catchphrase>9002</Catchphrase>
-	<Highscore>0</Highscore>
+	<Catchphrase>Games on games on games</Catchphrase>
+	<Highscore>9002</Highscore>
+</Player>
+<Player>
+	<Username>Dr, Wong</Username>
+	<Catchphrase>HELLO</Catchphrase>
+	<Highscore>1029820</Highscore>
 </Player>
 </BrainFlexPlayers>

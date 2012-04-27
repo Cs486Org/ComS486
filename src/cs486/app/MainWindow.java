@@ -4,7 +4,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.BoxLayout;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 @SuppressWarnings("serial")
 public class MainWindow extends JFrame {
@@ -57,5 +59,17 @@ public class MainWindow extends JFrame {
 	
 	public void displayGame(int id) {
 		gamePane.setVisibleGame(id);
+	}
+
+	public void updateScorePanelWithNewProfile() {
+		scorePane.updateProfileInfo();		
+	}
+
+	public void alertScore(int higherOrLower) {
+		if(higherOrLower > 0)
+			JOptionPane.showMessageDialog(this, "You set a new high score!  Congratulations!");
+		else
+			JOptionPane.showMessageDialog(this, "Your score has decreased significantly.  Consider a medical consultation.");
+		
 	}
 }

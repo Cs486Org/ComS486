@@ -26,10 +26,13 @@ public class BFManager {
 	private static MainWindow mainFrame;
 	private static ArrayList<PlayerProfile> players;
 	private int currentPlayer = 0;
+	/* CHANGE THIS IF YOU AREN'T ON LINUX */
+	private String fileName = "./players.xml";
 
 	public static void main(String... args) {
+		players = BFManager.getInstance().getPlayersFromFile();
 		mainFrame = new MainWindow();
-		players = getPlayersFromFile();
+		
 
 		mainFrame
 				.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -39,7 +42,7 @@ public class BFManager {
 		return players;
 	}
 
-	private static ArrayList<PlayerProfile> getPlayersFromFile() {
+	private ArrayList<PlayerProfile> getPlayersFromFile() {
 		if (players != null)
 			return players;
 
@@ -51,7 +54,7 @@ public class BFManager {
 		players = new ArrayList<PlayerProfile>();
 
 		try {
-			in = new FileInputStream("./players.xml");
+			in = new FileInputStream(fileName);
 			XMLEventReader eventReader = inputFactory.createXMLEventReader(in);
 
 			String name = "Newbie", phrase = "I'm new";
@@ -62,11 +65,6 @@ public class BFManager {
 				XMLEvent event = eventReader.nextEvent();
 
 				if (event.isStartElement()) {
-					StartElement startElement = event.asStartElement();
-					// If we have a item element we create a new item
-//					if (startElement.getName().getLocalPart() == "BrainFlexPlayers") {
-//						System.out.println("in XML doc");
-//					}
 						if (event.isStartElement()) {
 							if (event.asStartElement().getName().getLocalPart()
 									.equals("Username")) {
@@ -132,7 +130,7 @@ public class BFManager {
 		XMLOutputFactory outputFactory = XMLOutputFactory.newInstance();
 		// Create XMLEventWriter
 		XMLEventWriter eventWriter = outputFactory
-				.createXMLEventWriter(new FileOutputStream("./players.xml"));
+				.createXMLEventWriter(new FileOutputStream(fileName));
 		// Create a EventFactory
 		XMLEventFactory eventFactory = XMLEventFactory.newInstance();
 		XMLEvent end = eventFactory.createDTD("\n");
@@ -189,6 +187,7 @@ public class BFManager {
 
 	public void setCurrentProfile(int selectedIndex) {
 		currentPlayer = selectedIndex;
+		mainFrame.updateScorePanelWithNewProfile();
 	}
 	
 	public PlayerProfile getCurrentProfile() {
@@ -196,8 +195,9 @@ public class BFManager {
 	}
 
 	public void newHighScore(int i) {
-		players.get(currentPlayer).setHighScore(i);
 		
+		mainFrame.alertScore(i - players.get(currentPlayer).getHighScore());
+		players.get(currentPlayer).setHighScore(i);
 	}
 
 }
