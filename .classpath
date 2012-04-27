@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
@@ -6,3 +7,13 @@
 	<classpathentry kind="lib" path="C:/Users/jemonono/Dropbox/COMS 486/proj/ComS486/lib/MockupBundle.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/Alexander Jones/ComS486/lib/framework.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alexander Jones/ComS486/lib/MockupBundle.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
+>>>>>>> 51063a6d14d606a7b484de62cbc82646590be954
