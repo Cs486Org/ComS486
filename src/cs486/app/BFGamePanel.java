@@ -21,9 +21,11 @@ public class BFGamePanel extends JPanel {
 		this.setLayout(new CardLayout());
 
 		createAndAddScreens();
-
+		
 		this.setBackground(Color.BLACK);
 		this.setVisible(true);
+		
+		
 	}
 
 	// This is the method to prompt for game play.
@@ -50,5 +52,13 @@ public class BFGamePanel extends JPanel {
 		clickGame.setPreferredSize(new Dimension(600, 600));
 		this.add(clickGame, SCREENS[1]);
 */
+	
+	    cs486.games.BFSimonGame simonGame = new cs486.games.BFSimonGame();
+		simonGame.setPreferredSize(new Dimension(600, 600));
+		this.add(simonGame, SCREENS[1]);
+		
+		setVisibleGame(1);
+		simonGame.play();
+		
 	}
 }
