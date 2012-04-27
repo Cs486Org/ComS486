@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><BrainFlexPlayers>
+<Player>
+	<Username>Chad</Username>
+	<Catchphrase>I'm the best!</Catchphrase>
+	<Highscore>6962</Highscore>
+</Player>
+<Player>
+	<Username>Alex</Username>
+	<Catchphrase>It's over 9000!!!!</Catchphrase>
+	<Highscore>9001</Highscore>
+</Player>
+<Player>
+	<Username>Jacob</Username>
+	<Catchphrase>9002</Catchphrase>
+	<Highscore>0</Highscore>
+</Player>
+</BrainFlexPlayers>
