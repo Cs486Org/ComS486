@@ -14,13 +14,7 @@ public class MainWindow extends JFrame {
 	private BFGamePanel gamePane;
 	private BFScorePanel scorePane;
 	private BFMenuBar menuBar;
-	
-	public static void main(String... args) {
-		MainWindow frame = new MainWindow();
-		
-		frame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-	}
-	
+
 	public MainWindow() {
 		initializeBasicLayout();
 		
@@ -58,7 +52,10 @@ public class MainWindow extends JFrame {
 	}
 
 	public boolean isGameInPlay() {
-		return false; //TODO: add logic to check wether the game is in play. 
-		
+		return gamePane.isGameInPlay(); 
+	}
+	
+	public void displayGame(int id) {
+		gamePane.setVisibleGame(id);
 	}
 }
