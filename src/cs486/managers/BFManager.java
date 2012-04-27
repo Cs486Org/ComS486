@@ -195,4 +195,9 @@ public class BFManager {
 		return players.get(currentPlayer);
 	}
 
+	public void newHighScore(int i) {
+		players.get(currentPlayer).setHighScore(i);
+		
+	}
+
 }

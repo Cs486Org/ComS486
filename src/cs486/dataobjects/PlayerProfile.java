@@ -65,4 +65,8 @@ public class PlayerProfile {
 	public boolean removeFriend(PlayerProfile pp) {
 		return friends.remove(pp);
 	}
+
+	public void setHighScore(int i) {
+		highscore = i;		
+	}
 }
