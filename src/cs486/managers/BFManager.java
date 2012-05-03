@@ -198,6 +198,8 @@ public class BFManager {
 		
 		mainFrame.alertScore(i - players.get(currentPlayer).getHighScore());
 		players.get(currentPlayer).setHighScore(i);
+		mainFrame.updateScorePanelWithNewProfile();
+		//updateProfileInfo
 	}
 
 }

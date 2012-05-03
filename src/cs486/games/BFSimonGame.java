@@ -82,8 +82,10 @@ public class BFSimonGame extends BFGame implements java.awt.event.ActionListener
         for(SimonButton s : buttons){
 			s.resetColor();
 		}
+        
 //        System.out.println(sequence.size());
         for(int i = 0; i < sequence.size(); i++){
+        	
             int buttonNumber = sequence.get(i);
             buttons.get(buttonNumber).shadeButton();
             repaint(0);
@@ -99,8 +101,9 @@ public class BFSimonGame extends BFGame implements java.awt.event.ActionListener
             //buttons.get(buttonNumber).repaint(0);
             repaint();
             try {
-            	Thread.sleep(100);
+            	Thread.sleep(500);
             } catch (InterruptedException e){}
+            
         }
         //this
         guessIndex = 0;
